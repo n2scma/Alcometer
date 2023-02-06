@@ -7,27 +7,47 @@
     <h1>Promille Laskuri</h1>
     <form id="calculator">
       <div>
+
         <label for="paino">Paino (kiloja):</label>
+
         <input type="number" id="paino" name="paino" required>
+
       </div>
+
       <div>
         <label for="sukupuoli">Sukupuoli:</label>
+
         <select id="sukupuoli" name="sukupuoli" required>
+
           <option value="mies">Mies</option>
+
           <option value="nainen">Nainen</option>
+
         </select>
+
       </div>
+
       <div>
+
         <label for="pullot">Oluen määrä:</label>
+
         <input type="number" id="pullot" name="pullot" required>
+
       </div>
+
       <div>
+
         <label for="aika">Aika (Tunnit):</label>
+
         <input type="number" id="aika" name="aika" required>
+
       </div>
+
       <button type="button" onclick="laskePromillenMäärä()">Laske</button>
+
     </form>
     <div id="tulos"></div>
+    
     <script>
       function laskePromillenMäärä() {
         const paino = document.querySelector('#paino').value;
