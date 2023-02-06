@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Promille Laskuri</title>
+  </head>
+  <body>
+    <h1>Promille Laskuri</h1>
+    <form id="calculator">
+      <div>
+        <label for="paino">Paino (kiloja):</label>
+        <input type="number" id="paino" name="paino" required>
+      </div>
+      <div>
+        <label for="sukupuoli">Sukupuoli:</label>
+        <select id="sukupuoli" name="sukupuoli" required>
+          <option value="mies">Mies</option>
+          <option value="nainen">Nainen</option>
+        </select>
+      </div>
+      <div>
+        <label for="pullot">Oluen määrä:</label>
+        <input type="number" id="pullot" name="pullot" required>
+      </div>
+      <div>
+        <label for="aika">Aika (Tunnit):</label>
+        <input type="number" id="aika" name="aika" required>
+      </div>
+      <button type="button" onclick="laskePromillenMäärä()">Laske</button>
+    </form>
+    <div id="tulos"></div>
+    <script>
+      function laskePromillenMäärä() {
+        const paino = document.querySelector('#paino').value;
+        const sukupuoli = document.querySelector('#sukupuoli').value;
+        const pullot = document.querySelector('#pullot').value;
+        const aika = document.querySelector('#aika').value;
+
+        const litroja = pullot * 0.33;
+        const kiloja = litroja * 8 * 4.5;
+        const palo = paino / 10;
+        const painoJäljellä = paino - (palo * aika);
+        let tulos;
+        if (sukupuoli === 'mies') {
+            tulos = painoJäljellä / (paino * 0.7);
+        } else {
+          tulos = painoJäljellä / (paino * 0.6);
+        }
+        document.querySelector('#tulos').innerHTML = `Promillen määrä: ${tulos.toFixed(2)} `;
+      }
+    </script>
+  </body>
+</html>
